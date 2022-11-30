@@ -16,4 +16,4 @@
 
 ## The slide deck
 
-- [Presentation Deck](./deck/policy-as-code-with-kubewarden.pdf)
+- [Presentation Deck](./policy-as-code-with-kubewarden.pdf)
