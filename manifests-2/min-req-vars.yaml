@@ -1,0 +1,22 @@
+apiVersion: policies.kubewarden.io/v1
+kind: ClusterAdmissionPolicy
+metadata:
+  name: environment-variable-policy
+spec:
+  module: ghcr.io/kubewarden/policies/environment-variable-policy:v0.1.1
+  mutating: false
+  rules:
+  - apiGroups: ["apps"]
+    apiVersions: ["v1"]
+    resources: ["deployments"]
+    operations:
+    - CREATE
+    - UPDATE
+  settings:
+    rules:
+      - reject: anyIn
+        environmentVariables:
+          - name: "foo"
+            value: "bar"
+          - name: "foo2"
+            value: "bar2"
